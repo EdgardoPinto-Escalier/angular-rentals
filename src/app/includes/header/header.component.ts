@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: "angular-rentals-header",
-  templateUrl: "./header.component.html"
+  selector: "angularRentalsHeader",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"]
 })
 export class HeaderComponent {
   
