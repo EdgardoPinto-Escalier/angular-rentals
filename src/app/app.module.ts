@@ -1,12 +1,12 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA }  from '@angular/core';
+import { NgModule }  from '@angular/core';
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./includes/header/header.component";
 import { RentalComponent } from './rental/rental.component';
-import { RentalListComponent } from './rental/rental-list/rental-list.component';
-import { RentalListItemComponent } from './rental/rental-list-item/rental-list-item.component';
+
+import { RentalModule } from './rental/rental.module';
 
 const routes: Routes = [
   {path: '', component: RentalComponent}
@@ -15,14 +15,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent, 
-    HeaderComponent, RentalComponent, RentalListComponent, RentalListItemComponent
+    HeaderComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
-    BrowserModule
+    BrowserModule,
+    RentalModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
