@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'rentals', 
     component: RentalComponent,
     children: [
-      { path: '', component: RentalListComponent }
+      { path: '', component: RentalListComponent },
+      { path: ':rentalId', component: RentalDetailsComponent }
     ]
   }
 ]
@@ -24,7 +25,10 @@ const routes: Routes = [
     RentalComponent,
     RentalDetailsComponent
   ],
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes)
+  ],
   providers: [RentalService]
 })
 export class RentalModule {}

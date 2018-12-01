@@ -58,27 +58,25 @@ export class RentalService {
     createdAt: "29/11/2018"
   }];
 
+  public getRentalById(rentalId: string): Observable<Rental> {
+    return new Observable<Rental>((observer) => {
+      
+      setTimeout(() => {
+        const foundRental = this.rentals.find((rental) => {
+          return rental.id == rentalId;
+        });
+        observer.next(foundRental);
+      }, 500);
+    });
+  }
+
   public getRentals():   Observable<Rental[]> {
-    const rentalObservable: Observable<Rental[]> = new Observable((observer) => {
+    return new Observable<Rental[]>((observer) => {
 
       setTimeout(() => {
         
         observer.next(this.rentals);
-      }, 1000);
-
-      setTimeout(() => {
-        
-        observer.error("This is an Error!");
-      }, 2000);
-
-      setTimeout(() => {
-        
-        observer.complete();
-      }, 3000);
-      
-      
+      }, 1000);     
     });
-    
-    return rentalObservable;
   }
 }
