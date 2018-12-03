@@ -37,6 +37,10 @@ class FakeData {
     }]
   }
 
+  async cleanDb() {
+    await Rental.deleteMany({});
+  }
+
   pushRentalsToDB() {
     this.rentals.forEach((rental) => {
       const newRental = new Rental(rental);
@@ -45,6 +49,7 @@ class FakeData {
   }
 
   seedTheDb() {
+    this.cleanDb();
     this.pushRentalsToDB();
   }
 }
