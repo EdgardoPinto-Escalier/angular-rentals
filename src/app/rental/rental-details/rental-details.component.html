@@ -5,8 +5,7 @@
         <img src="{{rental.image}}" alt="">
       </div>
       <div class="col-md-6">
-        <!-- Will be replaced with map !!!! -->
-        <img src="{{rental.image}}" alt="">
+        <rentals-map></rentals-map>
       </div>
     </div>
   </div>
@@ -15,9 +14,9 @@
     <div class="row">
       <div class="col-md-8">
         <div class="rental">
-          <h2 class="rental-type {{rental.category}}">{{rental.shared ? 'Shared' : 'Full'}} {{rental.category}}</h2>
+          <h2 class="rental-type {{rental.category}}">{{rental.shared ? 'Shared' : 'Full'}}        {{rental.category}}</h2>
           <h1 class="rental-title">{{rental.title}}</h1>
-          <h2 class="rental-city">{{rental.city | ucwords}}</h2>
+          <h2 class="rental-city">{{rental.city | upper}}</h2>
           <div class="rental-room-info">
             <span><i class="fas fa-building"></i> {{rental.bedrooms}} bedrooms</span>
             <span><i class="fas fa-user"></i> {{rental.bedrooms + 4}} guests</span>
