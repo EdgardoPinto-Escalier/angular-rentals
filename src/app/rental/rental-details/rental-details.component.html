@@ -5,7 +5,7 @@
         <img src="{{rental.image}}" alt="">
       </div>
       <div class="col-md-6">
-        <rentals-map></rentals-map>
+        <rentals-map [location]="rental.city + ', ' + rental.street"></rentals-map>
       </div>
     </div>
   </div>
