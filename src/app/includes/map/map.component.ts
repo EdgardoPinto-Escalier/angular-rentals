@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { MapService } from './map.service';
 
 @Component({
@@ -9,11 +9,13 @@ import { MapService } from './map.service';
 export class MapComponent implements OnInit {
 
   @Input() location: string;
+  isPositionError: boolean = false;
 
-  lat: number;
-  lng: number;
+  lat: any;
+  lng: any;
 
-  constructor(private mapService: MapService) { }
+  constructor(private mapService: MapService, 
+              private ref:ChangeDetectorRef) { }
 
   ngOnInit() {
   }
@@ -23,6 +25,9 @@ export class MapComponent implements OnInit {
     (coordinates) => {
       this.lat = coordinates.lat;
       this.lng = coordinates.lng;
+      this.ref.detectChanges();
+    }, () => {
+      this.isPositionError = true;
     });
   }
 
