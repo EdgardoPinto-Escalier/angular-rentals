@@ -25,7 +25,6 @@ export class MapService {
   private geocodeLocation(location: string): Observable<any> {
     this.geoCode = new (<any>window).google.maps.Geocoder();
     if(!this.geoCode) { this.geoCode = new (<any>window).google.maps.Geocoder(); }
-
     return new Observable((observer) => {
       this.geoCode.geocode({address: location}, (result, status) => {
         if(status === 'OK') {
@@ -41,7 +40,6 @@ export class MapService {
   }
 
   public getMapGeoLocation(location: string): Observable<any> {
-    
     if(this.isCached(location)) {
       return of(this.locationCache[this.camelize(location)]);
     } else {
