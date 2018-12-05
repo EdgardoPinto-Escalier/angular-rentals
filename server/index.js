@@ -5,6 +5,7 @@ const FakeData = require('./fakeData');
 const Rental = require('./models/rental'); // Import the Schema
 
 const rentalRoutes = require('./routes/rentals');
+const userRoutes = require('./routes/users');
 
 
 mongoose.connect(config.DB_URI, {useNewUrlParser: true}).then(() => {
@@ -15,6 +16,7 @@ mongoose.connect(config.DB_URI, {useNewUrlParser: true}).then(() => {
 const app = express();
 
 app.use('/api/v1/rentals', rentalRoutes);
+app.use('/api/v1/users', userRoutes);
 
 const PORT = process.env.PORT || 3001;
 
