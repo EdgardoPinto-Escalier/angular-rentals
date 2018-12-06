@@ -1,5 +1,6 @@
 const express = require('express'); // Here we import express inside node.js
 const mongoose = require('mongoose'); // Import Mongoose
+const bodyParser = require('body-parser'); // Import body parser
 const config = require('./config/dev'); // Import DB configuration details
 const FakeData = require('./fakeData');
 const Rental = require('./models/rental'); // Import the Schema
